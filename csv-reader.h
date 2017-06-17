@@ -1,3 +1,11 @@
+//
+// Header file of csv-reader library
+//
+// Define CSV-HEADER_H to inform compiler if header is already included
+// Pay attention on the #endif on the end of file
+#ifndef CSV_READER_H
+#define CSV_READER_H
+//
 
 #include <iostream>
 #include <fstream>
@@ -12,3 +20,4 @@ using namespace std;
 //
 int getCSVLine(ifstream &inCSVFile, vector<string> &v);
 
+#endif
