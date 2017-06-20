@@ -35,7 +35,7 @@ int getCSVLine(ifstream &inCSVFile, vector<string> &v)
     {
       case AUT_START: // First state 
         if (strchr(valids.c_str(), c)) // found a valid character go to the next automaton
-          currentState = AUT_VALID_CHR;
+          currentState = (c == ' '? AUT_START : AUT_VALID_CHR); // Ignore blank spaces in the begining  
         else if (c == '"') // found a quotation mark
           currentState = AUT_QUOTATION;
         else
@@ -76,6 +76,7 @@ int getCSVLine(ifstream &inCSVFile, vector<string> &v)
           currentState = ((c == ',') ? AUT_START : AUT_END);
           break;
         }
+        else if (c == ' '); // Ignore spaces
         else 
           currentState = AUT_ERROR;
         break;
