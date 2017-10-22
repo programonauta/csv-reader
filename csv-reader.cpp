@@ -1,4 +1,4 @@
-// 
+//
 // Read file csv
 //
 
@@ -21,7 +21,7 @@ int getCSVLine(ifstream &inCSVFile, vector<string> &v)
 #define AUT_END 5
 #define AUT_ERROR 6
 
-  string field; 
+  string field;
   char c = 0;
   char currentState = AUT_START; // identify the current automaton state
   string valids = "abcdefghijklmnoprstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*():;/<>.[]{}|\\-_+= ";
@@ -33,9 +33,9 @@ int getCSVLine(ifstream &inCSVFile, vector<string> &v)
 
     switch (currentState)
     {
-      case AUT_START: // First state 
+      case AUT_START: // First state
         if (strchr(valids.c_str(), c)) // found a valid character go to the next automaton
-          currentState = (c == ' '? AUT_START : AUT_VALID_CHR); // Ignore blank spaces in the begining  
+          currentState = (c == ' '? AUT_START : AUT_VALID_CHR); // Ignore blank spaces in the begining
         else if (c == '"') // found a quotation mark
           currentState = AUT_QUOTATION;
         else
@@ -77,7 +77,7 @@ int getCSVLine(ifstream &inCSVFile, vector<string> &v)
           break;
         }
         else if (c == ' '); // Ignore spaces
-        else 
+        else
           currentState = AUT_ERROR;
         break;
       case AUT_BACK_SLASH:
