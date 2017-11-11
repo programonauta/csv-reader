@@ -24,7 +24,9 @@ int getCSVLine(ifstream &inCSVFile, vector<string> &v)
   string field;
   char c = 0;
   char currentState = AUT_START; // identify the current automaton state
-  string valids = "abcdefghijklmnoprstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*():;/<>.[]{}|\\-_+= ";
+  string valids = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*():;/<>.[]{}|\\-_+= ";
+
+  v.resize(0);
 
   while (inCSVFile && currentState != AUT_ERROR && currentState != AUT_END)    // loop until ends or find an erro on automaton
   {
